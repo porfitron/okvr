@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>TL&I OK-VR</title>
+  <meta name="description" content="Now in 3D!">
+
+  <script src="https://aframe.io/releases/0.3.2/aframe.js"></script>
+  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v2.6.1/dist/aframe-extras.js"></script>
+
+</head>
+<body>
+
+  <!-- <a-scene fog="type: linear; color: #000; far: 16; near: 7"> -->
+  <a-scene>
+
+    <!-- Load Assets -->
+    <a-assets>
+      <img id="floor" src="img/floor-dark.jpg">
+      <img id="wall" src="img/wall-concrete.jpg">
+    </a-assets>
+
+    <!-- User / Camera -->
+    <a-entity
+      id="player"
+      camera="user-height: 1.6"
+      universal-controls
+      kinematic-body
+      listener
+      position: 0 8 0;
+    ></a-entity>
+
+    <!-- Walls (used by walls.js -->)
+    <a-entity id="walls"></a-entity>
+
+    <!-- Ground -->
+    <a-grid id="ground" static-body material="src: #floor; repeat: 15 15" rotation="0 -90 0"></a-grid>
+
+    <!-- Sky -->
+    <a-sky id="sky" color="#0000ff"></a-sky>
+
+  </a-scene>
+
+  <script src="js/walls.js"></script>
+
+</body>
+</html>
